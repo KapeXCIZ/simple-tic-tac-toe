@@ -11,16 +11,6 @@ export default function Board() {
     let clickAudio = new Audio("/click-sound.wav")
     let winAudio = new Audio("/win-sound.wav")
 
-    // const winningCombination = [
-    //     [0,1,2],
-    //     [3,4,5],
-    //     [6,7,8],
-    //     [0,3,6],
-    //     [1,4,7],
-    //     [2,5,8],
-    //     [0,4,8],
-    //     [2,4,6]
-    // ]
 
 
     function playClick(){
@@ -63,15 +53,11 @@ export default function Board() {
         }
     }, [slots]);
 
-
-
-
     function getAndEditCurrentState() {
         const newGameState = gameState === "X" ? "O" : "X"
         setGameState(newGameState)
         return gameState
     }
-
 
     function handleClick(index) {
         if (slots[index] === "") {
@@ -88,7 +74,6 @@ export default function Board() {
         setWinner(undefined);
         setGameEnded(false);
     }
-
 
     return (
         <>
