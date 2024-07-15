@@ -2,22 +2,16 @@ import { Circle, X } from "@phosphor-icons/react";
 import Slot from "./Slot";
 import { useState, useEffect } from "react";
 
-
 export default function Board() {
     const [slots, setSlots] = useState(Array(9).fill(""));
     const [gameState, setGameState] = useState("X");
     const [winner, setWinner] = useState()
     const [gameEnded, setGameEnded] = useState(false)
     let clickAudio = new Audio("/click-sound.wav")
-    let winAudio = new Audio("/win-sound.wav")
-
-
 
     function playClick(){
         clickAudio.play();
     }
-
-    
 
     useEffect(() => {
         if(winner !== undefined){
@@ -85,8 +79,6 @@ export default function Board() {
                         {!gameEnded ? <>{gameState}'s turn</> : 
                         <div className="text-white">{winner === "Draw" ? <>Draw</> : <>{winner} won</>}</div>
                         }
-                        
-                        
                     </div>
                     <button onClick={() => {reset(); playClick()}} className="rounded-lg bg-white shadow-md shadow-slate-600 hover:bg-slate-200">
                         Reset
