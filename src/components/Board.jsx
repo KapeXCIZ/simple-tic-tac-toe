@@ -17,21 +17,15 @@ export default function Board() {
         clickAudio.play();
     }
 
-    function playWin(){
-        winAudio.play();
-    }
-
     
 
     useEffect(() => {
         if(winner !== undefined){
             setGameEnded(true)
-            playWin()
         }
     }, [winner])
 
     useEffect(() => {
-        console.log("entrato nel controllo dell'array");
         if (slots[0] === slots[1] && slots[0] === slots[2] && slots[0] !== "") {
             setWinner(slots[0]);
         } else if (slots[3] === slots[4] && slots[3] === slots[5] && slots[3] !== "") {
